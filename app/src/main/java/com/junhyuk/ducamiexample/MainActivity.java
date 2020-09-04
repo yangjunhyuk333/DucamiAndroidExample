@@ -76,31 +76,44 @@ public class MainActivity extends AppCompatActivity {
         buttonClear.setOnClickListener(onClickListener);
 
     }
+
+    //숫자 입력받아서 mainNumber 안에 값을 저장하는 함수
     private void addMainNum(int num){
-        if(mainNumber.equals("0") || mainNumber.equals(""))
-            mainNumber = String.valueOf(num);
-        else
-            mainNumber += String.valueOf(num);
+        if(/*mainNumber가 0이거나 없다면 받아온 숫자로 초기화*/){
+        }
+        else{//mainNumber 안에 값이 있다면 받아온 숫자를 덧붙임
+            //??
+        }
     }
+
+    //mainNumber 부분에 텍스트 재설정하는 함수
     void updateMainNumber(){
-        textNumber.setText(mainNumber);
+        //???
     }
+
+    //연산 버튼을 누르면 이전에 입력받았던 수를 subNumber 에 띄우는 함수
     private void updateSubNumber(){
-        textSubNumber.setText(subNumber);
+        //???
     }
+
+    //reset 함수
+    //Main
     private void resetMainNumber(){
         mainNumber = "0";
         updateMainNumber();
     }
+    //Sub
     private void resetSubNumber(){
         subNumber = "";
         updateSubNumber();
     }
+
     private View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             Calculator calculator = new Calculator();
             switch (view.getId()) {
+                //숫자 패드
                 case R.id.button0:
                     addMainNum(0);
                     updateMainNumber();
@@ -141,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
                     addMainNum(9);
                     updateMainNumber();
                     break;
+
+                //연산(누르면 mainNumber 를 subNumber 에 저장하고 MainNumber 는 초기화)
                 case R.id.button_plus:
                     subNumber = mainNumber;
                     updateSubNumber();
@@ -200,6 +215,8 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                     break;
+
+                //클리어
                 case R.id.buttonC:
                     resetMainNumber();
                     resetSubNumber();
